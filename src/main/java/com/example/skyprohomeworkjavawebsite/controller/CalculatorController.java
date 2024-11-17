@@ -1,5 +1,6 @@
-package com.example.skyprohomeworkjavawebsite.calculator;
+package com.example.skyprohomeworkjavawebsite.controller;
 
+import com.example.skyprohomeworkjavawebsite.service.CalculatorService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,22 +25,26 @@ public class CalculatorController {
     }
 
     @GetMapping(path="/plus")
-    public String plus(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
+    public Integer plus(@RequestParam(value = "num1", required = false) Integer num1,
+                       @RequestParam(value = "num2", required = false)  Integer num2) {
         return calculatorService.plus(num1, num2);
     }
 
     @GetMapping(path = "/minus")
-    public String minus(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
+    public Integer minus(@RequestParam(value = "num1", required = false) Integer num1,
+                        @RequestParam(value = "num2", required = false)  Integer num2) {
         return calculatorService.minus(num1, num2);
     }
 
     @GetMapping(path ="/multiply")
-    public String multiply(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
+    public Integer multiply(@RequestParam(value = "num1", required = false) Integer num1,
+                           @RequestParam(value = "num2", required = false) Integer num2) {
         return calculatorService.multiply(num1, num2);
     }
 
     @GetMapping(path = "/devide")
-    public String devide(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
+    public Integer devide(@RequestParam(value = "num1", required = false) Integer num1,
+                         @RequestParam(value = "num2", required = false)  Integer num2) {
         return calculatorService.divide(num1, num2);
     }
 }
